@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasapalabra: El Universo y la Tierra</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>PASAPALABRA: EL UNIVERSO Y LA TIERRA</h1>
+    </header>
+
+    <main class="game-container">
+        <!-- LADO IZQUIERDO: Rosco circular de letras -->
+        <div class="rosco-container">
+            <div id="rosco" class="rosco"></div>
+            <!-- Foto.png en el centro del rosco -->
+            <div class="center-image-container">
+                <img src="Foto.png" alt="Profesora de Biología" class="center-photo">
+            </div>
+        </div>
+
+        <!-- LADO DERECHO: Panel de preguntas y control -->
+        <div class="panel-container">
+            <!-- Selección de Modo y Control de Música -->
+            <div class="top-controls">
+                <div class="mode-selector">
+                    <label for="game-mode">MODO DE JUEGO:</label>
+                    <select id="game-mode">
+                        <option value="untimed" selected>Sin Tiempo (Modo Repaso)</option>
+                        <option value="timer">Con Tiempo (150s)</option>
+                    </select>
+                </div>
+                <button id="btn-music" class="btn-music">🎵 Música: OFF</button>
+            </div>
+
+            <div class="scoreboard">
+                <div class="score-box timer" id="timer-box">
+                    <span>TIEMPO</span>
+                    <strong id="timer">∞</strong>
+                </div>
+                <div class="score-box hits">
+                    <span>ACIERTOS</span>
+                    <strong id="hits-count">0</strong>
+                </div>
+                <div class="score-box errors">
+                    <span>FALLOS</span>
+                    <strong id="errors-count">0</strong>
+                </div>
+            </div>
+
+            <!-- Caja de la pregunta actual -->
+            <div class="definition-box">
+                <h2 id="letter-title">CONTIENE LA A</h2>
+                <p id="definition-text">Cargando pregunta...</p>
+            </div>
+
+            <!-- Entrada de respuesta -->
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Escribe tu respuesta aquí..." autocomplete="off">
+                <div class="button-group">
+                    <button id="btn-submit" class="btn btn-check">Enviar</button>
+                    <button id="btn-pasapalabra" class="btn btn-pasapalabra">Pasapalabra</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Elemento de Audio -->
+    <audio id="bg-music" src="musica.mp3" loop></audio>
+
+    <!-- Modal de Fin de Juego -->
+    <div id="end-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">¡Fin de la partida!</h2>
+            <p id="modal-message"></p>
+            <button id="btn-restart" class="btn btn-restart">Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
